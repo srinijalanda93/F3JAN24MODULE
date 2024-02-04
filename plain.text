@@ -1,0 +1,27 @@
+asn:"AS45609"
+city:"Solan"
+continent_code:"AS"
+country:"IN"
+country_area:3287590
+country_calling_code:"+91"
+country_capital:"New Delhi"
+country_code:"IN"
+country_code_iso3:"IND"
+country_name:"India"
+country_population:1352617328
+country_tld:".in"
+currency:"INR"
+currency_name:"Rupee"
+in_eu:false
+ip:"223.187.111.98"
+languages:"en-IN,hi,bn,te,mr,ta,ur,gu,kn,ml,or,pa,as,bh,sat,ks,ne,sd,kok,doi,mni,sit,sa,fr,lus,inc"
+latitude:30.9085
+longitude:77.1022
+network:"223.187.111.0/24"
+org:"Bharti Airtel Ltd. AS for GPRS Service"
+postal:"173229"
+region:"Himachal Pradesh"
+region_code:"HP"
+timezone:"Asia/Kolkata"
+utc_offset:"+0530"
+version:"IPv4"
