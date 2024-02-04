@@ -5,8 +5,8 @@
   padding: 0px;
   /* background-color: black; */
 }
-body{
-    background-color: black;
+body {
+  background-color: black;
 }
 .Top {
   margin-left: 20px;
@@ -90,28 +90,31 @@ body{
   font-style: italic;
 }
 .search {
-    margin: auto;
-    width: 900px;
-    height: 100px;
-    /* background-color: aqua; */
-    display: flex; /* Add display: flex; to make the children centered */
-    flex-direction: column;
-    align-items: center; /* Center children vertically */
-    box-sizing: border-box;
+  margin: auto;
+  width: 900px;
+  height: 100px;
+  /* background-color: aqua; */
+  display: flex; /* Add display: flex; to make the children centered */
+  flex-direction: column;
+  align-items: center; /* Center children vertically */
+  box-sizing: border-box;
 }
 
 .search #text {
-    margin-top: 9px;
-    border-radius: 10px;
-    padding-inline: 190px;
-    padding-block:15px;
-    border: 3px solid #575A85;
-    background-color: transparent;
-    /* Remove display, align-items, and justify-content properties */
+  margin-top: 9px;
+  border-radius: 10px;
+  padding-inline: 190px;
+  padding-block: 15px;
+  border: 3px solid #575a85;
+  background-color: transparent;
+  /* Remove display, align-items, and justify-content properties */
+  color: #575a85;
+  font-size: 20px;
 }
-#text::placeholder{
-    text-align: left;
-    font-size: 20px;
+#text::placeholder {
+  text-align: left;
+  font-size: 20px;
+  color: white;
 }
 
 /* .postoffice {
@@ -144,32 +147,32 @@ background-color: #575a85;
 } */
 
 .postoffice {
-    display: flex; 
-    align-items: center;
-    justify-content: space-around; /* Adjust as needed */
-    margin: auto;
-    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
-    width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Adjust as needed */
+  margin: auto;
+  flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+  width: 90vw;
 }
 
 .divPost {
-    flex: 0 0 calc(50% - 10px); /* Set flex basis to 50%, considering margin */
-    height: 199px;
-    background-color: #575a85;
-    border-radius: 10px;
-    display: flex;
-    margin: 5px; /* Adjust as needed */
-    flex-direction: column;
-    justify-content: center;
+  flex: 0 0 calc(50% - 10px); /* Set flex basis to 50%, considering margin */
+  height: 199px;
+  background-color: #575a85;
+  border-radius: 10px;
+  display: flex;
+  margin: 5px; /* Adjust as needed */
+  flex-direction: column;
+  justify-content: center;
 }
 
 .divPost > p {
   font-size: 19px;
-    color: #f6f7fb;
-    margin: 5px;
-    font-weight: 700;
+  color: #f6f7fb;
+  margin: 5px;
+  font-weight: 700;
 }
-.divPost > p span{
-    font-weight: 500;
-    font-style: italic;
+.divPost > p span {
+  font-weight: 500;
+  font-style: italic;
 }

@@ -21,13 +21,13 @@ section:nth-child(odd) h1 {
   color: #575a85;
   font-size: 36px;
   font-weight: 700;
- 
+
   letter-spacing: 0em;
   text-align: left;
 }
 section:nth-child(odd) p {
   font-family: Inter;
-  color:#B8BCCC;
+  color: #b8bccc;
   margin-top: 0px;
   font-size: 24px;
   font-weight: 400;
@@ -36,54 +36,50 @@ section:nth-child(odd) p {
   text-align: left;
 }
 section:nth-child(odd) img {
-margin: auto;
+  margin: auto;
   width: 290px;
   height: 290px;
 }
-section>div {
-    text-align: center;
-  }
+section > div {
+  text-align: center;
+}
 
-  section:nth-child(even) {
-    background-color: #575a85;
-  }
+section:nth-child(even) {
+  background-color: #575a85;
+}
 
-  section:nth-child(even)>div {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
+section:nth-child(even) > div {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
-  section:nth-child(even)>div>span:first-child {
-  
-    font-size: 30px;
-    font-weight: 700;
-    color: #b8bccc;
-    padding-right: 5px;
-    margin: 0; /* Remove default margin */
-  }
+section:nth-child(even) > div > span:first-child {
+  font-size: 30px;
+  font-weight: 700;
+  color: #b8bccc;
+  padding-right: 5px;
+  margin: 0; /* Remove default margin */
+}
 
-  section:nth-child(even)>div>#Address {
-  
-    font-size: 28px;
-    font-weight: 400;
-    color: #ffffff;
-    margin: 0; /* Remove default margin */
-  }
+section:nth-child(even) > div > #Address {
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0; /* Remove default margin */
+}
 
-  section>div>button {
-    margin-top: 10px; /* Adjust the margin as needed */
-    background-color: transparent;
-    border: 2px solid #B8BCCC;
-    padding-inline:100px;
-    padding-block: 20px;
-    border-radius: 10px;
-    color:#B8BCCC;
-    font-size: 24px;
-
-  }
-  section>div>button:hover{
-    box-shadow:1px 1px 10px #8c8eb1;
-  }
-   
+section > div > button {
+  margin-top: 10px; /* Adjust the margin as needed */
+  background-color: transparent;
+  border: 2px solid #b8bccc;
+  padding-inline: 100px;
+  padding-block: 20px;
+  border-radius: 10px;
+  color: #b8bccc;
+  font-size: 24px;
+}
+section > div > button:hover {
+  box-shadow: 1px 1px 10px #8c8eb1;
+}

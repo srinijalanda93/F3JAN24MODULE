@@ -35,7 +35,6 @@ function displayUi(ipValue) {
   sec1.appendChild(pTag);
 }
 
-
 function getFullDetails(data) {
   console.log("here is the full details :", data);
 
@@ -67,99 +66,115 @@ function getFullDetails(data) {
   const sec1 = document.querySelector(".Top");
   sec1.appendChild(divTag);
 
-
   //for section middle we need to display the map
   // let call other function
   displayMap(data);
 }
 
-function  displayMap(data){
-    const sectionTag2=document.querySelector('.middle');
-    sectionTag2.innerHTML=`<iframe
+function displayMap(data) {
+  const sectionTag2 = document.querySelector(".middle");
+  sectionTag2.innerHTML = `<iframe
     src="https://maps.google.com/maps?q=${data.latitude},${data.longitude}&z=15&output=embed"
     width="660"
     height="270"
     frameborder="0"
     style="border:0;display:flex; justify-content:center align-items:center"
-  ></iframe>`
+  ></iframe>`;
 
   displayTime(data);
 }
 
-function  displayTime(data){
-    let date = new Date().toLocaleString("en-US", { timeZone: data.timezone });
-    console.log(date); //date and time
-    const div2=document.querySelector('.Time-zone');
-    
-    div2.innerHTML=`<p>Time Zone: <span>${data.timezone}</span></p>
+function displayTime(data) {
+  let date = new Date().toLocaleString("en-US", { timeZone: data.timezone });
+  console.log(date); //date and time
+  const div2 = document.querySelector(".Time-zone");
+
+  div2.innerHTML = `<p>Time Zone: <span>${data.timezone}</span></p>
     <p>Date And Time: <span>${date}</span></p>
     <p>Pincode: <span>${data.postal}</span></p>
     `;
 
-    //pincode 
-     fetchPinCode(data.postal);
+  //pincode
+  fetchPinCode(data.postal);
 }
-
+let originalArray = [];
 async function fetchPinCode(pincode) {
-    try {
-        console.log("fetch the pincode:", pincode);
-        const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
-        const data = await response.json();
-        console.log("the pincodes are:", data);
+  try {
+    console.log("fetch the pincode:", pincode);
+    const response = await fetch(
+      `https://api.postalpincode.in/pincode/${pincode}`
+    );
+    const data = await response.json();
+    console.log("the pincodes are:", data);
 
-        const div2 = document.querySelector('.Time-zone');
-        const pTag = document.createElement('p');
-        pTag.innerText = data[0].Message;
-        div2.appendChild(pTag);
-        console.log("the postoffice:",data[0].PostOffice)
-        // Corrected function name: displayPinCode
-        let postOffice=data[0].PostOffice
-        displayPinCode(postOffice);
-    } catch (e) {
-        console.log("the error in fetch the pincodes are:", e);
-    }
+    const div2 = document.querySelector(".Time-zone");
+    const pTag = document.createElement("p");
+    pTag.innerText = data[0].Message;
+    div2.appendChild(pTag);
+    console.log("the postoffice:", data[0].PostOffice);
+    // originalArray(data[0].postOffice)
+    originalArray.push(data[0].PostOffice);
+    //displayPinCode(originalArray);
+
+    // Corrected function name: displayPinCode
+    let postOffice = data[0].PostOffice;
+    displayPinCode(postOffice);
+  } catch (e) {
+    console.log("the error in fetch the pincodes are:", e);
+  }
 }
 
 function displayPinCode(array) {
-    const secPost=document.querySelector(".postoffice");
-    // array.forEach((eleObj, i) => {
-    //     console.log(i, eleObj);
-    //     const divTag=document.createElement('div');
-    //     //<div></div>
-    //     divTag.className="divPost"
-    //     // divTag.innerHTML =`<p>Name:<span>${eleObj.Name}</span></p>
-    //     // <p>Branch Type:<span>${eleObj.BranchType}</span></p>
-    //     // <p>Delivery Status:<span>${eleObj.DeliveryStatus}</span></p>
-    //     // <p>District:<span>${eleObj.District}</span></p>
-    //     // <p>Division:<span>${eleObj.Division}</span></p>`
-    //     // secPost.appendChild(divTag);
-    // });
-    array.forEach((eleObj, i) => {
-        console.log(i, eleObj);
-        const divTag = document.createElement('div');
-        divTag.className = "divPost";
-    
-        const pName = document.createElement('p');
-        pName.innerHTML = `Name:<span>${eleObj.Name}</span>`;
-        divTag.appendChild(pName);
-    
-        const pBranchType = document.createElement('p');
-        pBranchType.innerHTML = `Branch Type: <span>${eleObj.BranchType}</span>`;
-        divTag.appendChild(pBranchType);
-    
-        const pDeliveryStatus = document.createElement('p');
-        pDeliveryStatus.innerHTML = `Delivery Status: <span>${eleObj.DeliveryStatus}</span>`;
-        divTag.appendChild(pDeliveryStatus);
-    
-        const pDistrict = document.createElement('p');
-        pDistrict.innerHTML = `District: <span>${eleObj.District}</span>`;
-        divTag.appendChild(pDistrict);
-    
-        const pDivision = document.createElement('p');
-        pDivision.innerHTML = `Division: <span>${eleObj.Division}</span>`;
-        divTag.appendChild(pDivision);
-    
-        secPost.appendChild(divTag);
-    });
-    
+  const secPost = document.querySelector(".postoffice");
+
+  array.forEach((eleObj, i) => {
+    const divTag = document.createElement("div");
+    divTag.className = "divPost";
+
+    const pName = document.createElement("p");
+    pName.innerHTML = `Name:<span>${eleObj.Name}</span>`;
+    divTag.appendChild(pName);
+
+    const pBranchType = document.createElement("p");
+    pBranchType.innerHTML = `Branch Type: <span>${eleObj.BranchType}</span>`;
+    divTag.appendChild(pBranchType);
+
+    const pDeliveryStatus = document.createElement("p");
+    pDeliveryStatus.innerHTML = `Delivery Status: <span>${eleObj.DeliveryStatus}</span>`;
+    divTag.appendChild(pDeliveryStatus);
+
+    const pDistrict = document.createElement("p");
+    pDistrict.innerHTML = `District: <span>${eleObj.District}</span>`;
+    divTag.appendChild(pDistrict);
+
+    const pDivision = document.createElement("p");
+    pDivision.innerHTML = `Division: <span>${eleObj.Division}</span>`;
+    divTag.appendChild(pDivision);
+
+    secPost.appendChild(divTag);
+  });
+}
+
+// Add an event listener to the search input
+const searchInput = document.getElementById("text");
+searchInput.addEventListener("input", () => {
+  const searchText = searchInput.value.toLowerCase();
+
+  // Filter the post offices based on the search text
+  const filteredArray = originalArray.filter((eleObj) => {
+    const nameMatch = eleObj.Name.toLowerCase().includes(searchText);
+    const branchTypeMatch =
+      eleObj.BranchType.toLowerCase().includes(searchText);
+    return nameMatch || branchTypeMatch;
+  });
+
+  // Clear the existing display and show the filtered post offices
+  clearPostOfficeDisplay();
+  displayPinCode(filteredArray);
+});
+
+// Function to clear the existing post office display
+function clearPostOfficeDisplay() {
+  const secPost = document.querySelector(".postoffice");
+  secPost.innerHTML = "";
 }

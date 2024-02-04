@@ -48,5 +48,3 @@ function buildUi(ip_Address) {
     window.location.href = `main.html?ip=${ip}`;
   });
 }
-
-
