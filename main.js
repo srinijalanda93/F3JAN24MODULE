@@ -100,28 +100,66 @@ function  displayTime(data){
      fetchPinCode(data.postal);
 }
 
-async function fetchPinCode(pincode){
-    try{
-        console.log("fetch the pincode:",pincode);
-        //const pincode=data.postal;
-        const response=await fetch(`https://api.postalpincode.in/pincode/${pincode}`)
-        const data=await response.json();
-        console.log("the pincodes are :",data);
+async function fetchPinCode(pincode) {
+    try {
+        console.log("fetch the pincode:", pincode);
+        const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
+        const data = await response.json();
+        console.log("the pincodes are:", data);
 
-        const div2=document.querySelector('.Time-zone');
-        const pTag=document.createElement('p');
-        pTag.innerText=data[0].Message;
+        const div2 = document.querySelector('.Time-zone');
+        const pTag = document.createElement('p');
+        pTag.innerText = data[0].Message;
         div2.appendChild(pTag);
-
-        displayPinCode(data[0].PostOffice)
-    }catch(e){
-        console.log("the error in fetch the pincodes are:",e);
+        console.log("the postoffice:",data[0].PostOffice)
+        // Corrected function name: displayPinCode
+        let postOffice=data[0].PostOffice
+        displayPinCode(postOffice);
+    } catch (e) {
+        console.log("the error in fetch the pincodes are:", e);
     }
-
 }
 
-function displayPinCode(array){
-    array.forEach((eleObj) =>{
-        console.log()
-    })
+function displayPinCode(array) {
+    const secPost=document.querySelector(".postoffice");
+    // array.forEach((eleObj, i) => {
+    //     console.log(i, eleObj);
+    //     const divTag=document.createElement('div');
+    //     //<div></div>
+    //     divTag.className="divPost"
+    //     // divTag.innerHTML =`<p>Name:<span>${eleObj.Name}</span></p>
+    //     // <p>Branch Type:<span>${eleObj.BranchType}</span></p>
+    //     // <p>Delivery Status:<span>${eleObj.DeliveryStatus}</span></p>
+    //     // <p>District:<span>${eleObj.District}</span></p>
+    //     // <p>Division:<span>${eleObj.Division}</span></p>`
+    //     // secPost.appendChild(divTag);
+    // });
+    array.forEach((eleObj, i) => {
+        console.log(i, eleObj);
+        const divTag = document.createElement('div');
+        divTag.className = "divPost";
+    
+        const pName = document.createElement('p');
+        pName.innerHTML = `Name:<span>${eleObj.Name}</span>`;
+        divTag.appendChild(pName);
+    
+        const pBranchType = document.createElement('p');
+        pBranchType.innerHTML = `Branch Type: <span>${eleObj.BranchType}</span>`;
+        divTag.appendChild(pBranchType);
+    
+        const pDeliveryStatus = document.createElement('p');
+        pDeliveryStatus.innerHTML = `Delivery Status: <span>${eleObj.DeliveryStatus}</span>`;
+        divTag.appendChild(pDeliveryStatus);
+    
+        const pDistrict = document.createElement('p');
+        pDistrict.innerHTML = `District: <span>${eleObj.District}</span>`;
+        divTag.appendChild(pDistrict);
+    
+        const pDivision = document.createElement('p');
+        pDivision.innerHTML = `Division: <span>${eleObj.Division}</span>`;
+        divTag.appendChild(pDivision);
+    
+        secPost.appendChild(divTag);
+    });
+    
 }

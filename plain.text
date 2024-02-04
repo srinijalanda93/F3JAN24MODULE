@@ -25,3 +25,19 @@ region_code:"HP"
 timezone:"Asia/Kolkata"
 utc_offset:"+0530"
 version:"IPv4"
+
+
+{
+    "Name": "Bhojnagar",
+    "Description": null,
+    "BranchType": "Branch Post Office",
+    "DeliveryStatus": "Delivery",
+    "Circle": "Himachal Pradesh",
+    "District": "Solan",
+    "Division": "Solan",
+    "Region": "Shimla HQ",
+    "Block": "NA",
+    "State": "Himachal Pradesh",
+    "Country": "India",
+    "Pincode": "173229"
+}
